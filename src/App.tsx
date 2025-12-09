@@ -49,7 +49,7 @@ export const App: React.FC = () => {
       return;
     }
 
-    const Id = Math.max(...todos.map(todo => todo.id)) + 1;
+    const Id = Math.max(0, ...todos.map(todo => todo.id)) + 1;
     const selectedUser = getUserById(+newTodo.userId);
 
     const todoToAdd = {
@@ -70,7 +70,7 @@ export const App: React.FC = () => {
     <div className="App">
       <h1>Add todo form</h1>
 
-      <form action="/api/todos" method="POST" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="field">
           {'Title: '}
           <input
